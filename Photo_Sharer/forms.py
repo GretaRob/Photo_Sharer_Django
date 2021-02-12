@@ -1,3 +1,4 @@
+'''
 from django import forms
 from .models import Image
 
@@ -7,3 +8,5 @@ class ImageForm(forms.ModelForm):
         model = Image
         fields = '__all__'
         labels = {'photo': ''}
+
+'''

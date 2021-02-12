@@ -8,7 +8,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .forms import ImageForm
+#from .forms import ImageForm
 from .models import Image
 # Create your views here.
 
@@ -20,7 +20,7 @@ def home(request):
     return render(request, 'Photo_Sharer/home.html', context)
 
 
-class PostListView(ListView):
+class ImageListView(ListView):
     model = Image
     template_name = 'Photo_Sharer/home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'images'
@@ -28,9 +28,9 @@ class PostListView(ListView):
     paginate_by = 5
 
 
-class UserPostListView(ListView):
+class UserImageListView(ListView):
     model = Image
-    template_name = 'Photo_Sharer/user_posts.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'Photo_Sharer/user_images.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'images'
     paginate_by = 5
 
@@ -39,40 +39,40 @@ class UserPostListView(ListView):
         return Image.objects.filter(author=user).order_by('-date_posted')
 
 
-class PostDetailView(DetailView):
+class ImageDetailView(DetailView):
     model = Image
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
-    fields = ['title', 'image']
+    fields = ['title', 'photo']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class ImageUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Image
-    fields = ['title', 'image']
+    fields = ['title', 'photo']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
     def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
+        image = self.get_object()
+        if self.request.user == image.author:
             return True
         return False
 
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ImageDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Image
     success_url = '/'
 
     def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
+        image = self.get_object()
+        if self.request.user == image.author:
             return True
         return False
