@@ -2,7 +2,7 @@
 {% block content %}
     <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
     {% for image in images %}
-        <article class="card">
+        <article class="card shadow-lg">
           <div class="card-group">
             <img class="rounded-circle article-img" src="{{ image.author.profile.image.url }}">
             <div class="article-metadata">
@@ -10,7 +10,7 @@
               <small class="text-muted">{{ image.date_posted|date:"F d, Y" }}</small>
               <h2><a class="article-title" href="{% url 'image-detail' image.id %}">{{ image.title }}</a></h2>
             </div>
-            <img src="{{image.photo.url}}" alt="" class="card-img-top" height="200px">
+            <img src="{{image.photo.url}}" alt="" class="card-img-bottom">
           </div>
         </article>
     {% endfor %}

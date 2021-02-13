@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: #dbe2e9;
   color: #333333;
   margin-top: 5rem;
 }
@@ -35,6 +35,7 @@ ul {
 
 .article-title {
   color: #444444;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 a.article-title:hover {
@@ -46,15 +47,31 @@ a.article-title:hover {
   white-space: pre-line;
 }
 
+.card {
+  margin-bottom: 15px;
+}
+
+.mr-2 {
+  color: #ba958d;
+}
+
 .article-img {
   height: 65px;
   width: 65px;
   margin-right: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.card-img-top {
+  min-height: 10px;
 }
 
 .article-metadata a:hover {
-  color: #333;
+  color: #7fa3b2;
   text-decoration: none;
+  font-family: Garamond;
 }
 
 .article-svg {

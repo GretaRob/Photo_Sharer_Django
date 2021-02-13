@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-
+from .models import Profile
 # Create your views here.
 
 
@@ -20,8 +20,9 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-@login_required
+@login_required()
 def profile(request):
+    Profile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,

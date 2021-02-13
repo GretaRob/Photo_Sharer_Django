@@ -1,11 +1,12 @@
 {% extends "Photo_Sharer/base.html" %}
 {% block content %}
-  <article class="card">
+  <article class="card shadow-lg">
     <div class="card-group">
       <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
       <div class="article-metadata">
         <a class="mr-2" href="{% url 'user-images' object.author.username %}">{{ object.author }}</a>
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        <h2 class="article-title">{{ object.title }}</h2>
         {% if object.author == user %}
           <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'image-update' object.id %}">Update</a>
@@ -14,7 +15,6 @@
         {% endif %}
       </div>
     </div>
-    <h2 class="article-title">{{ object.title }}</h2>
-    <img src="{{object.photo.url}}" alt="" class="card-img-top" height="200px">
+    <img src="{{object.photo.url}}" alt="" class="card-img-bottom">
   </article>
 {% endblock content %}

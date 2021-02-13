@@ -1,7 +1,7 @@
 {% extends "Photo_Sharer/base.html" %}
 {% block content %}
     {% for image in images %}
-        <article class="card">
+        <article class="shadow-lg card">
           <div class="card-group">
             <img class="rounded-circle article-img" src="{{ image.author.profile.image.url }}">
             <div class="article-metadata">
@@ -10,7 +10,7 @@
               <h2><a class="article-title" href="{% url 'image-detail' image.id %}">{{ image.title }}</a></h2>
             </div>
           </div>
-          <img src="{{image.photo.url}}" alt="" class="card-img-top" height="300px">
+          <img src="{{image.photo.url}}" alt="" class="card-img-bottom">
         </article>
     {% endfor %}
     {% if is_paginated %}
