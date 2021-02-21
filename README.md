@@ -5,7 +5,9 @@ Photo Sharing Website
 Screenshots  
 ------------
 
-  ![alt text](https://github.com/gretarob/cooking_recipe_django/blob/main/screenshot1.png)
+  ![alt text](https://github.com/gretarob/photo_sharer_django/blob/main/screenshot1.jpg)
 
 
-  ![alt text](https://github.com/gretarob/cooking_recipe_django/blob/main/screenshot2.png)
+  ![alt text](https://github.com/gretarob/photo_sharer_django/blob/main/screenshot2.jpg)
+
+ ![alt text](https://github.com/gretarob/photo_sharer_django/blob/main/screenshot3.jpg)
